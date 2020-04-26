@@ -1,0 +1,26 @@
+.flex {
+  flex-grow: 1;
+}
+
+.token {
+  margin: 20px;
+  background-color: #eee;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow-wrap: break-word;
+}
+
+.cnt {
+  display: flex;
+  flex-direction: column;
+
+  .callBtn {
+    margin: 20px;
+  }
+
+  .response {
+    text-align: center;
+  }
+}

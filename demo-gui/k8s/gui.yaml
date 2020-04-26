@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: gdgdevparty
+    name: gui
+  name: gui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gdgdevparty
+      name: gui
+  template:
+    metadata:
+      labels:
+        app: gdgdevparty
+        name: gui
+    spec:
+      containers:
+        - image: devparty2020-gui:latest
+          name: gui
+          imagePullPolicy: Never
+          resources: {}
+          ports:
+            - containerPort: 80
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gdgdevparty
+    name: gui
+  name: gui
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: gdgdevparty
+    name: gui
+  ports:
+    - name: http
+      port: 80
+      targetPort: http

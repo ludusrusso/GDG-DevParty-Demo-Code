@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "demo-gui",
+      "public": "dist/demo-gui",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

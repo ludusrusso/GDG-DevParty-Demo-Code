@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gdg-devfest-demo-249d4": {
+      "hosting": {
+        "demo-gui": [
+          "gdg-devfest-demo-249d4"
+        ]
+      }
+    }
+  }
+}
