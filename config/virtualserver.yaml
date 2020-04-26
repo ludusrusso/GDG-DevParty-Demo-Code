@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: server
+spec:
+  hosts:
+    - server.gdgdevparty.info
+  http:
+    - route:
+        - destination:
+            host: server.default.svc.cluster.local
+      corsPolicy:
+        allowOrigin: ["*"]
+        allowMethods:
+          - POST
+          - GET
+        allowHeaders:
+          - authorization
+          - content-type
+          - accept
+          - origin
+          - user-agent
+        allowCredentials: true

@@ -1,0 +1,14 @@
+apiVersion: security.istio.io/v1beta1
+kind: RequestAuthentication
+metadata:
+  name: server
+spec:
+  selector:
+    matchLabels:
+      name: server
+  jwtRules:
+    - issuer: https://securetoken.google.com/gdg-devfest-demo-249d4
+      jwksUri: https://www.googleapis.com/service_accounts/v1/metadata/x509/securetoken@system.gserviceaccount.com
+      outputPayloadToHeader: "auth"
+      principalBinding: USE_ORIGIN
+

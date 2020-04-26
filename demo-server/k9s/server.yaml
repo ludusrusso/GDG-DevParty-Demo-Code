@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: gdgdevparty
+    name: server
+  name: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: gdgdevparty
+      name: server
+  template:
+    metadata:
+      labels:
+        app: gdgdevparty
+        name: server
+    spec:
+      containers:
+        - image: devparty2020-server:latest
+          name: server
+          imagePullPolicy: Never
+          resources: {}
+          ports:
+            - containerPort: 3000
+              name: http
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: gdgdevparty
+    name: server
+  name: server
+  namespace: default
+spec:
+  type: NodePort
+  selector:
+    app: gdgdevparty
+    name: server
+  ports:
+    - name: http
+      port: 3000
+      targetPort: http
