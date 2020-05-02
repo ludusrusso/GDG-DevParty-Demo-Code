@@ -10,4 +10,8 @@ spec:
   rules:
     - from:
         - source:
-            requestPrincipals: ["*"]
+            requestPrincipals: ['*']
+      when:
+        - key: request.auth.claims[groups]
+          values:
+            - 'admin'

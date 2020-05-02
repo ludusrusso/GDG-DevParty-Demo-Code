@@ -10,11 +10,13 @@ app.get('/server', function (req, res) {
   const auth = req.headers['auth'];
   if (auth) {
     res.send({
-      msg: 'user autenticated'
+      ...req.headers,
+      msg: 'user autenticated',
     });
   } else {
     res.send({
-      msg: 'cannot find email'
+      ...req.headers,
+      msg: 'cannot find email',
     });
   }
 });

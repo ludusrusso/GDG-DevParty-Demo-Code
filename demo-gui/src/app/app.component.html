@@ -14,16 +14,41 @@
 </mat-toolbar>
 
 <div class="cnt">
-  <div class="token" *ngIf="token$ | async as token">{{ token }}</div>
+  <div class="token" *ngIf="token$ | async as token">
+    <span class="header">{{ header(token) }}</span
+    >. <span class="body">{{ body(token) }}</span
+    >.
+    <span class="signature">{{ signature(token) }}</span>
+  </div>
 
-  <button
-    class="callBtn"
-    mat-raised-button
-    color="primary"
-    (click)="callServer()"
-  >
-    Call Server
-  </button>
+  <div class="token" *ngIf="token$ | async as token">
+    <ngx-json-viewer [json]="bodyJson(token)"></ngx-json-viewer>
+  </div>
 
-  <div class="response">{{ resMessage }}</div>
+  <div class="actions">
+    <button
+      class="callBtn"
+      mat-raised-button
+      color="primary"
+      (click)="callServerRealToken()"
+    >
+      Call Server
+    </button>
+
+    <button
+      class="callBtn"
+      mat-raised-button
+      color="primary"
+      (click)="callServerFakeToken()"
+    >
+      Call Server Fake token
+    </button>
+  </div>
+
+  <div class="response" *ngIf="response">
+    <ngx-json-viewer [json]="response"></ngx-json-viewer>
+  </div>
+  <div class="error" *ngIf="error">
+    <ngx-json-viewer [json]="error"></ngx-json-viewer>
+  </div>
 </div>
