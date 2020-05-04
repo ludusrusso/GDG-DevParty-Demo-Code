@@ -5,3 +5,5 @@ This is the demo code for my talk [**Autenticazione OAuth2 in un cluster Kuberne
 [Download the slides here](https://docs.google.com/presentation/d/1ayYMXfxipU4RJdqY61M-ZhFPOPitkldpiyxd6j_8wkM/edit?usp=sharing)
 
 ![](./imgs/main.png)
+
+Watch my talk [on YouTube](https://youtu.be/LyAzDwg5b-Q?t=12002)
